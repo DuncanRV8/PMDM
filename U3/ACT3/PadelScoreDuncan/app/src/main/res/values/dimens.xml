@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="contadoresCero">80sp</dimen>
+    <dimen name="titulos">30sp</dimen>
+    <dimen name="number_contador">70sp</dimen>
+    <dimen name="plush_point">15sp</dimen>
+</resources>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">PadelScoreDuncan</string>
+    <string name="sets">Sets</string>
+    <string name="tie_break">Tie-Break</string>
+    <string name="games">Juegos</string>
+    <string name="actualySet">Juego Actual</string>
+    <string name="plush_point">Sumar Puntos</string>
+    <string name="reset">Resetear</string>
+    <string name="cero">0</string>
+    <string name="fifteen">15</string>
+    <string name="thirty">30</string>
+    <string name="forty">40</string>
+</resources>
