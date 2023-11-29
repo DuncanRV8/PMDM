@@ -1,3 +1,12 @@
+/**
+ *
+ * Aplicacion para navegar por diferentes pantallas.
+ *
+ * @author: Duncan Rua Valiente
+ * @version: 1.5.4
+ *
+ */
+
 package com.duncanrua.rickmortycardsduncan.ui.screens
 
 import android.annotation.SuppressLint
@@ -33,6 +42,9 @@ import androidx.navigation.NavController
 import com.duncanrua.rickmortycardsduncan.R
 import com.duncanrua.rickmortycardsduncan.navigation.Routes
 
+/*
+Añadimos un top bar con el logo y un icono desplegable que tiene dos textos dentros para navegar a otras pantallas. Finalmente ponemos un texto en el medio.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable

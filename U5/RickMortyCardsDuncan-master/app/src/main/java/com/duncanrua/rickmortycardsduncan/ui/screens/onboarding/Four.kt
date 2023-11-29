@@ -1,3 +1,12 @@
+/**
+ *
+ * Aplicacion para navegar por diferentes pantallas.
+ *
+ * @author: Duncan Rua Valiente
+ * @version: 1.5.4
+ *
+ */
+
 @file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
 
 package com.duncanrua.rickmortycardsduncan.ui.screens.onboarding
@@ -19,6 +28,9 @@ import androidx.navigation.NavController
 import com.duncanrua.rickmortycardsduncan.R
 import com.duncanrua.rickmortycardsduncan.navigation.Routes
 
+/*
+Añadimos un textField y si el nombre cumple los requisitos puede ir a la pantalla principal, también hay una opción de volver a la primera pantalla del onboarding
+ */
 @Composable
 fun Four(navController: NavController){
     var name by rememberSaveable { mutableStateOf("") }
