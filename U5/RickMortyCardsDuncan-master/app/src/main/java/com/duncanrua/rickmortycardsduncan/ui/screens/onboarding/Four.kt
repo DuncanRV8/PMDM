@@ -14,7 +14,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
+import com.duncanrua.rickmortycardsduncan.R
 import com.duncanrua.rickmortycardsduncan.navigation.Routes
 
 @Composable
@@ -26,7 +28,7 @@ fun Four(navController: NavController){
             navController.popBackStack()
             navController.navigate(route = Routes.OnboardingOne.route)
         }) {
-            Text(text = "Volver")
+            Text(text = stringResource(id = R.string.returnn))
         }
     }
     Column(
@@ -34,13 +36,13 @@ fun Four(navController: NavController){
         verticalArrangement = Arrangement.Center
 
     ) {
-        TextField(value = name, onValueChange = {name = it}, label = { Text(text = "Pon el nombre")}, placeholder = { Text(
-            text = "Ejemplo: Duncan")})
+        TextField(value = name, onValueChange = {name = it}, label = { Text(text = stringResource(id = R.string.set_name))}, placeholder = { Text(
+            text = stringResource(id = R.string.example_name))})
 
         Button(onClick = {
             navController.navigate(route = Routes.MainScreen.route)
         }, enabled = checkname.matches(name)) {
-            Text(text = "Ir a la principal")
+            Text(text = stringResource(id = R.string.go_to_main))
         }
     }
 }

@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">RickMortyCardsDuncan</string>
+    <string name="photo_duncan">Foto Duncan</string>
+    <string name="photo_name">Duncan Ruá</string>
+    <string name="logo_morty">Logo de Morty</string>
+    <string name="portal_morty">Portal Morty</string>
+    <string name="next_page">Siguiente pantalla</string>
+    <string name="skip">Saltar</string>
+    <string name="select_your_fight">HAZ TUS ELECCI0NES Y PELEA</string>
+    <string name="card_one">Carta 1</string>
+    <string name="card_two">Carta 2</string>
+    <string name="card_three">Carta 3</string>
+    <string name="peace_of_the_world">PAZ ENTRE LOS MUNDOS</string>
+    <string name="returnn">Volver</string>
+    <string name="set_name">Pon el nombre</string>
+    <string name="example_name">Ejemplo: Duncan</string>
+    <string name="go_to_main">Ir a la principal</string>
+    <string name="main">Principal</string>
+    <string name="equip">Equipo</string>
+    <string name="start_game">Comenzar partida</string>
+    <string name="see_more">Ver mas</string>
+    <string name="select_your_characters">SELECCIONA A TUS PERSONAJES</string>
 </resources>

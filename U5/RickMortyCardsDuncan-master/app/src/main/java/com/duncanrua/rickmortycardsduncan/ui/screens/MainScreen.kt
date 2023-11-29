@@ -28,6 +28,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.duncanrua.rickmortycardsduncan.R
@@ -44,19 +45,19 @@ fun MainScreen(navController: NavController){
                 title = {
                     Image(
                         painter = painterResource(id = R.drawable.rymlogo),
-                        contentDescription = "logo"
+                        contentDescription = stringResource(id = R.string.logo_morty)
                     )
                 },
                 navigationIcon = {
                     var expanded by rememberSaveable { mutableStateOf(false)}
                     IconButton(onClick = {expanded=true }){
-                        Icon(imageVector = Icons.Default.MoreVert, contentDescription = "Ver mas")
+                        Icon(imageVector = Icons.Default.MoreVert, contentDescription = stringResource(id = R.string.see_more))
                     }
                     DropdownMenu(expanded = expanded, onDismissRequest = {
 
                     }) {
-                        DropdownMenuItem(text = { Text(text = "Principal") }, onClick = {})
-                        DropdownMenuItem(text = { Text(text = "Equipo") }, onClick = {
+                        DropdownMenuItem(text = { Text(text = stringResource(id = R.string.main)) }, onClick = {})
+                        DropdownMenuItem(text = { Text(text = stringResource(id = R.string.equip)) }, onClick = {
                             navController.popBackStack()
                             navController.navigate(route = Routes.SecondScreen.route)
                         })
@@ -72,12 +73,12 @@ fun MainScreen(navController: NavController){
                 .padding(it)
                 .fillMaxSize()
         ) {
-            Image(painter = painterResource(id = R.drawable.rymportal), contentDescription = "imagenPortal")
+            Image(painter = painterResource(id = R.drawable.rymportal), contentDescription = stringResource(id = R.string.portal_morty))
             Spacer(modifier = Modifier.height(10.dp))
             Button(onClick = {
                 
             }) {
-                Text(text = "Comenzar partida")
+                Text(text = stringResource(id = R.string.start_game))
             }
         }
     }

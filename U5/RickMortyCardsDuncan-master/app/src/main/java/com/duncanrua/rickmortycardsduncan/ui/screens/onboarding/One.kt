@@ -16,6 +16,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.duncanrua.rickmortycardsduncan.R
@@ -27,9 +28,9 @@ fun One(navController: NavController){
         horizontalAlignment = Alignment.CenterHorizontally
 
     ){
-        Image(painter = painterResource(id = R.drawable.rymlogo), contentDescription = "Logo Morty")
+        Image(painter = painterResource(id = R.drawable.rymlogo), contentDescription = stringResource(id = R.string.logo_morty))
         Spacer(modifier = Modifier.height(10.dp))
-        Image(painter = painterResource(id = R.drawable.rymportal), contentDescription = "Portal Morty")
+        Image(painter = painterResource(id = R.drawable.rymportal), contentDescription = stringResource(id = R.string.portal_morty))
         Row (
 
         ){
@@ -40,7 +41,7 @@ fun One(navController: NavController){
                 }
             ) {
                 Text(
-                    text = "Saltar"
+                    text = stringResource(id = R.string.skip)
                 )
             }
             Spacer(modifier = Modifier.width(30.dp))
@@ -50,7 +51,7 @@ fun One(navController: NavController){
                 }
             ) {
                 Text(
-                    text = "Siguiente pantalla"
+                    text = stringResource(id = R.string.next_page)
                 )
             }
 

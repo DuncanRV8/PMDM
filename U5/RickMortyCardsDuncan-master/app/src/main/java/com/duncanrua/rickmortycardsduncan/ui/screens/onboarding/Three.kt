@@ -15,6 +15,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -23,13 +24,12 @@ import com.duncanrua.rickmortycardsduncan.navigation.Routes
 
 @Composable
 fun Three(navController: NavController){
-    var name by rememberSaveable { mutableStateOf(false) }
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "PAZ ENTRE LOS MUNDOS", fontSize = 20.sp)
+        Text(text = stringResource(id = R.string.peace_of_the_world), fontSize = 20.sp)
         Spacer(modifier = Modifier.height(10.dp))
-        Image(painter = painterResource(id = R.drawable.pazentremundos), contentDescription = "Paz entre mundos" )
+        Image(painter = painterResource(id = R.drawable.pazentremundos), contentDescription = stringResource(id = R.string.peace_of_the_world) )
         Spacer(modifier = Modifier.height(10.dp))
         Button(
             onClick ={
@@ -37,7 +37,7 @@ fun Three(navController: NavController){
             }
         ) {
             Text(
-                text = "Siguiente pantalla"
+                text = stringResource(id = R.string.next_page)
             )
         }
     }

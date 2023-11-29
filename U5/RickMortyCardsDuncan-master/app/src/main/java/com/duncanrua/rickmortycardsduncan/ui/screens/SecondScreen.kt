@@ -27,6 +27,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.duncanrua.rickmortycardsduncan.R
@@ -42,22 +43,22 @@ fun SecondScreen(navController: NavController){
                 title = {
                     Image(
                         painter = painterResource(id = R.drawable.rymlogo),
-                        contentDescription = "logo"
+                        contentDescription = stringResource(id = R.string.logo_morty)
                     )
                 },
                 navigationIcon = {
                     var expanded by rememberSaveable { mutableStateOf(false) }
                     IconButton(onClick = {expanded=true }){
-                        Icon(imageVector = Icons.Default.MoreVert, contentDescription = "Ver mas")
+                        Icon(imageVector = Icons.Default.MoreVert, contentDescription = stringResource(id = R.string.see_more))
                     }
                     DropdownMenu(expanded = expanded, onDismissRequest = {
 
                     }) {
-                        DropdownMenuItem(text = { Text(text = "Principal") }, onClick = {
+                        DropdownMenuItem(text = { Text(text = stringResource(id = R.string.main)) }, onClick = {
                             navController.popBackStack()
                             navController.navigate(route = Routes.MainScreen.route)
                         })
-                        DropdownMenuItem(text = { Text(text = "Equipo") }, onClick = {})
+                        DropdownMenuItem(text = { Text(text = stringResource(id = R.string.equip)) }, onClick = {})
                     }
                 },
             )
@@ -70,7 +71,7 @@ fun SecondScreen(navController: NavController){
                 .fillMaxSize(),
             verticalArrangement = Arrangement.Center
         ) {
-            Text(text = "SELECCIONA TUS PERSONAJES")
+            Text(text = stringResource(id = R.string.select_your_characters))
         }
     }
 }

@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -29,7 +30,7 @@ fun Two(navController: NavController){
     ){
         LazyColumn(horizontalAlignment = Alignment.CenterHorizontally, content ={
             item {
-                Text(text = "HAZ TUS ELECCIONES DE PELEA", fontSize = 20.sp)
+                Text(text = stringResource(id = R.string.select_your_fight), fontSize = 20.sp)
 
                 Spacer(modifier = Modifier.height(10.dp))
                 cards()
@@ -43,7 +44,7 @@ fun Two(navController: NavController){
                         }
                     ) {
                         Text(
-                            text = "Saltar"
+                            text = stringResource(id = R.string.skip)
                         )
                     }
                     Spacer(modifier = Modifier.width(30.dp))
@@ -53,7 +54,7 @@ fun Two(navController: NavController){
                         }
                     ) {
                         Text(
-                            text = "Siguiente pantalla"
+                            text = stringResource(id = R.string.next_page)
                         )
                     }
 
@@ -73,10 +74,10 @@ fun cards(){
     Column (
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        card(painter = R.drawable.card1, contentDescription = "Card1", modifier = Modifier.size(400.dp))
+        card(painter = R.drawable.card1, contentDescription = stringResource(id = R.string.card_one), modifier = Modifier.size(400.dp))
         Spacer(modifier = Modifier.height(10.dp))
-        card(painter = R.drawable.card2, contentDescription = "Card2",modifier = Modifier.size(400.dp))
+        card(painter = R.drawable.card2, contentDescription = stringResource(id = R.string.card_two),modifier = Modifier.size(400.dp))
         Spacer(modifier = Modifier.height(10.dp))
-        card(painter = R.drawable.card3, contentDescription = "Card3",modifier = Modifier.size(400.dp))
+        card(painter = R.drawable.card3, contentDescription = stringResource(id = R.string.card_three),modifier = Modifier.size(400.dp))
     }
 }

@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.duncanrua.rickmortycardsduncan.R
 import com.duncanrua.rickmortycardsduncan.navigation.Routes
@@ -29,7 +30,7 @@ fun Splash(){
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Image(painter = painterResource(id = R.drawable.duncantrue), contentDescription = "Foto Duncan")
-        Text(text = "Duncan Ruá ")
+        Image(painter = painterResource(id = R.drawable.duncantrue), contentDescription = stringResource(id = R.string.photo_duncan))
+        Text(text = stringResource(id = R.string.photo_name))
     }
 }
