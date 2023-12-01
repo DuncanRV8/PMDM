@@ -5,7 +5,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.duncanrua.rickmortycardsduncan.ui.theme.RickMortyCardsDuncanTheme
+import com.example.compose.RickMortyCardsDuncanTheme
 
 @Composable
 fun RickMortyCardContent(content: @Composable () -> Unit) {

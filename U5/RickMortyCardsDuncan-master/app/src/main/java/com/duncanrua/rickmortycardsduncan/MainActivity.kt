@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.duncanrua.rickmortycardsduncan.navigation.Navigation
 import com.duncanrua.rickmortycardsduncan.ui.RickMortyCardContent
-import com.duncanrua.rickmortycardsduncan.ui.theme.RickMortyCardsDuncanTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

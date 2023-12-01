@@ -5,7 +5,9 @@ package com.duncanrua.rickmortycardsduncan.ui.screens.onboarding
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -24,7 +26,9 @@ fun Four(navController: NavController){
     var name by rememberSaveable { mutableStateOf("") }
     val checkname = Regex("^[a-zA-Z]{3,}+\$")
     Column() {
-        Button(onClick = {
+        Button(
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onTertiaryContainer),
+            onClick = {
             navController.popBackStack()
             navController.navigate(route = Routes.OnboardingOne.route)
         }) {
@@ -39,7 +43,9 @@ fun Four(navController: NavController){
         TextField(value = name, onValueChange = {name = it}, label = { Text(text = stringResource(id = R.string.set_name))}, placeholder = { Text(
             text = stringResource(id = R.string.example_name))})
 
-        Button(onClick = {
+        Button(
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onTertiaryContainer),
+            onClick = {
             navController.navigate(route = Routes.MainScreen.route)
         }, enabled = checkname.matches(name)) {
             Text(text = stringResource(id = R.string.go_to_main))
