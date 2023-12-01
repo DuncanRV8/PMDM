@@ -1,12 +1,3 @@
-/**
- *
- * Aplicacion para navegar por diferentes pantallas.
- *
- * @author: Duncan Rua Valiente
- * @version: 1.5.4
- *
- */
-
 package com.duncanrua.rickmortycardsduncan.navigation
 
 import androidx.compose.runtime.Composable
@@ -21,9 +12,7 @@ import com.duncanrua.rickmortycardsduncan.ui.screens.onboarding.One
 import com.duncanrua.rickmortycardsduncan.ui.screens.onboarding.Three
 import com.duncanrua.rickmortycardsduncan.ui.screens.onboarding.Two
 import com.duncanrua.rickmortycardsduncan.ui.screens.splashscreen.SplashScreen
-/*
-Declaramos las rutas para navegar por las pantallas.
- */
+
 @Composable
 fun Navigation(){
     val navController = rememberNavController()

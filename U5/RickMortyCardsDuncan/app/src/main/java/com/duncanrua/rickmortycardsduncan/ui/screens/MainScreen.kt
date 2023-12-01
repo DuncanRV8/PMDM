@@ -1,30 +1,24 @@
-/**
- *
- * Aplicacion para navegar por diferentes pantallas.
- *
- * @author: Duncan Rua Valiente
- * @version: 1.5.4
- *
- */
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
 
 package com.duncanrua.rickmortycardsduncan.ui.screens
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -37,18 +31,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.duncanrua.rickmortycardsduncan.R
 import com.duncanrua.rickmortycardsduncan.navigation.Routes
 
-/*
-Añadimos un top bar con el logo y un icono desplegable que tiene dos textos dentros para navegar a otras pantallas. Finalmente ponemos un texto en el medio.
- */
+
+@Composable
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@Composable
-fun SecondScreen(navController: NavController){
+fun MainScreen(navController: NavController){
     Scaffold (
         topBar = {
             TopAppBar(
@@ -59,31 +51,39 @@ fun SecondScreen(navController: NavController){
                     )
                 },
                 navigationIcon = {
-                    var expanded by rememberSaveable { mutableStateOf(false) }
+                    var expanded by rememberSaveable { mutableStateOf(false)}
                     IconButton(onClick = {expanded=true }){
                         Icon(imageVector = Icons.Default.MoreVert, contentDescription = stringResource(id = R.string.see_more))
                     }
                     DropdownMenu(expanded = expanded, onDismissRequest = {
 
                     }) {
-                        DropdownMenuItem(text = { Text(text = stringResource(id = R.string.main)) }, onClick = {
+                        DropdownMenuItem(text = { Text(text = stringResource(id = R.string.main)) }, onClick = {})
+                        DropdownMenuItem(text = { Text(text = stringResource(id = R.string.equip)) }, onClick = {
                             navController.popBackStack()
-                            navController.navigate(route = Routes.MainScreen.route)
+                            navController.navigate(route = Routes.SecondScreen.route)
                         })
-                        DropdownMenuItem(text = { Text(text = stringResource(id = R.string.equip)) }, onClick = {})
                     }
                 },
             )
         },
     ){
+        Spacer(modifier = Modifier.height(20.dp))
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .padding(it)
-                .fillMaxSize(),
-            verticalArrangement = Arrangement.Center
+                .fillMaxSize()
         ) {
-            Text(text = stringResource(id = R.string.select_your_characters))
+            Image(painter = painterResource(id = R.drawable.rymportal), contentDescription = stringResource(id = R.string.portal_morty))
+            Spacer(modifier = Modifier.height(10.dp))
+            Button(
+                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onTertiaryContainer),
+                onClick = {
+                
+            }) {
+                Text(text = stringResource(id = R.string.start_game))
+            }
         }
     }
 }
