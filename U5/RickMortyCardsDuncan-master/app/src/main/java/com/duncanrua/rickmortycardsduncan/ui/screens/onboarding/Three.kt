@@ -1,3 +1,12 @@
+/**
+ *
+ * Aplicacion para navegar por diferentes pantallas.
+ *
+ * @author: Duncan Rua Valiente
+ * @version: 1.5.4
+ *
+ */
+
 package com.duncanrua.rickmortycardsduncan.ui.screens.onboarding
 
 import androidx.compose.foundation.Image
@@ -24,6 +33,9 @@ import androidx.navigation.NavController
 import com.duncanrua.rickmortycardsduncan.R
 import com.duncanrua.rickmortycardsduncan.navigation.Routes
 
+/*
+Añadimos una imagen con un text y finalmente un boton para ir al onboarding 4.
+ */
 @Composable
 fun Three(navController: NavController){
     Column(
