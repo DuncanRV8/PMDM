@@ -104,7 +104,6 @@ fun AnimeCard(
                         imageVector = Icons.Default.Star,
                         contentDescription = "anime",
                         tint = Color(0xFFFB8C00)
-                    )
                 }
             },
             trailingContent = {
