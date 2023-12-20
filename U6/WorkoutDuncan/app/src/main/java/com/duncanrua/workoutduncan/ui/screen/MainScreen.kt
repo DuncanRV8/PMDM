@@ -1,3 +1,12 @@
+/**
+ *
+ * Programa para entrenar en casa con 8 ejercicios y las repeticiones que quieras
+ *
+ * @author: Duncan Rua Valiente
+ * @version: 1.5.6
+ *
+ */
+
 package com.duncanrua.workoutduncan.ui.screen
 
 import androidx.compose.foundation.background
@@ -21,11 +30,13 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.modifier.modifierLocalMapOf
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -33,14 +44,21 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.duncanrua.workoutduncan.viewmodel.ExerciseViewModel
 
+/**
+ * Poner las repeticiones y el nombre del usuario y si hay un usuario poder pasar a la siguiente pantalla.
+ *
+ * @param userName
+ * @param repetitions
+ *
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(
     navController: NavController,
     exerciseViewModel: ExerciseViewModel
 ){
-    var user by rememberSaveable { mutableStateOf("") }
-    var repetitions by rememberSaveable { mutableStateOf(3) }
+    val userName: String by exerciseViewModel.userName.observeAsState(initial = "")
+    var repetitions by rememberSaveable { mutableStateOf(exerciseViewModel.repetitions.value ?: 3)}
    Column(
        horizontalAlignment = Alignment.CenterHorizontally,
        modifier = Modifier
@@ -48,7 +66,6 @@ fun MainScreen(
    ) {
         Text(
             text = "ANIMO TITAN, ESOS PECTORALES NO SE VAN A PONER FUERTES SOLOS",
-            //Animo titan, esos pectorales no se van a poner fuertes solos
             fontSize = 20.sp,
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Bold
@@ -56,8 +73,8 @@ fun MainScreen(
        Spacer(modifier = Modifier.height(10.dp))
        TextField(
            label = { Text(text = "Nombre de usuario") },
-           value = user,
-           onValueChange = { user = it},
+           value = userName,
+           onValueChange = { userName -> exerciseViewModel.updateUserName(userName)},
            modifier = Modifier
                .fillMaxWidth()
                .padding(8.dp)
@@ -74,7 +91,8 @@ fun MainScreen(
                fontSize = 35.sp)
            Spacer(modifier = Modifier.width(10.dp))
            Slider(value = repetitions.toFloat(),
-                  onValueChange = { repetitions = it.toInt()},
+                  onValueChange = { newRepetitions -> repetitions = newRepetitions.toInt()
+                      exerciseViewModel.updatedRepetitions(repetitions)},
                   valueRange = 3f .. 20f,
                   steps = 19,
                   thumb = {
@@ -86,8 +104,11 @@ fun MainScreen(
            )
            Spacer(modifier = Modifier.height(20.dp))
            Button(onClick = {
-
-           }) {
+                if (userName.length >= 3){
+                    navController.navigate("exercise_screen")
+                }
+           },
+               enabled = userName.length >= 3) {
                Text(text = "Siguiente ventana")
            }
        }
