@@ -13,7 +13,7 @@ import com.duncanrua.duncanfinal.viewModel.AnimeViewModel
 @Composable
 fun Navigation(animeViewModel: AnimeViewModel){
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Routes.MainOnboarding.route){
+    NavHost(navController = navController, startDestination = Routes.MainScreen.route){
         composable(Routes.MainScreen.route){
             MainScreen( navController, animeViewModel)
         }
