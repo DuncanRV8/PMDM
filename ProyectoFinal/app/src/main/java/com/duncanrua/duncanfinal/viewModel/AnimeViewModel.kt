@@ -1,6 +1,7 @@
 package com.duncanrua.duncanfinal.viewModel
 
 import android.app.Application
+import androidx.compose.runtime.Composable
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -31,5 +32,10 @@ class AnimeViewModel(application: Application) : AndroidViewModel(application) {
                 _userName.value = it
             }
         }
+    }
+
+    @Composable
+    fun loadData(animeViewModel: AnimeViewModel){
+        animeViewModel.loadName()
     }
 }

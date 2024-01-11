@@ -24,5 +24,4 @@ class AnimePreferences(val context: Context){
     fun loadName() = context.dataStore.data.map { preferences ->
         preferences[NAME] ?: ""
     }
-
 }

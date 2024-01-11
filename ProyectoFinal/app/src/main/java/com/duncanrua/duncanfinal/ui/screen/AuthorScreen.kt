@@ -1,13 +1,15 @@
-package com.duncanrua.duncanfinal.splashScreen
+package com.duncanrua.duncanfinal.ui.screen
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -20,63 +22,65 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.duncanrua.duncanfinal.R
-import com.duncanrua.duncanfinal.navigation.Routes
 import com.duncanrua.duncanfinal.viewModel.AnimeViewModel
 import kotlinx.coroutines.delay
+import com.duncanrua.duncanfinal.R
+import androidx.compose.ui.text.font.FontWeight
 
 @Composable
-fun SplashScreen(navController: NavController, animeViewModel: AnimeViewModel){
-    animeViewModel.loadName()
-    LaunchedEffect(key1 = true) {
-        delay(3000)
-        navController.popBackStack()
-        val userName = animeViewModel.userName.value.orEmpty()
-        if(userName.length > 1){
-            navController.navigate(Routes.MainScreen.route)
-        }else{
-            navController.navigate(Routes.MainOnboarding.route)
-        }
-    }
-    Splash()
-}
-
-@Composable
-fun Splash() {
-    var visible by remember { mutableStateOf(true) }
+fun AuthorScreen(
+    navController: NavController,
+    animeViewModel: AnimeViewModel
+){
+    var visible by remember { mutableStateOf(false) }
 
     LaunchedEffect(key1 = visible) {
-        delay(2000)
-        visible = false
+        delay(1000)
+        visible = true
     }
 
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        val scale by animateFloatAsState(
-            targetValue = if (visible) 1.5f else 1f,
+        val alpha by animateFloatAsState(
+            targetValue = if (visible) 1f else 0f,
             animationSpec = tween(durationMillis = 1000), label = ""
         )
+
         Image(
             painter = painterResource(id = R.drawable.duncan),
             contentDescription = "stringResource(id = R.string.logo)",
             modifier = Modifier
                 .size(200.dp, 200.dp)
-                .graphicsLayer(scaleX = scale, scaleY = scale),
+                .graphicsLayer(
+                    alpha = alpha
+                ),
         )
+
         Text(
             text = "Duncan Rua Valiente",
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold,
             color = Color.Black,
             modifier = Modifier
-                .graphicsLayer(scaleX = scale, scaleY = scale)
+                .graphicsLayer(
+                    alpha = alpha
+                )
                 .offset(y = 120.dp)
         )
+        Button(onClick = {
+            navController.popBackStack()
+            navController.navigate("main_screen")
+        },
+            modifier = Modifier
+                .graphicsLayer(alpha = alpha)
+                .offset(y = 180.dp))
+        {
+            Text(text = "Volver atrás")
+        }
     }
 }

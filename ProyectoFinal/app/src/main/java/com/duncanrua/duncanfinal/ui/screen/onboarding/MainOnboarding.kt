@@ -4,8 +4,11 @@ package com.duncanrua.duncanfinal.ui.screen.onboarding
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -23,7 +26,8 @@ fun MainOnboarding(
     navController: NavController,
     animeViewModel: AnimeViewModel
 ){
-    val userName: String by animeViewModel.userName.observeAsState(initial = " ")
+    val userName: String by animeViewModel.userName.observeAsState(initial = "")
+    val regexUserName = Regex("""^\S(?:.*\S)?$""")
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -36,5 +40,13 @@ fun MainOnboarding(
                 .fillMaxWidth()
                 .padding(8.dp)
         )
+        Spacer(modifier = Modifier.height(30.dp))
+        Button(onClick = {
+            navController.navigate("main_screen")
+            animeViewModel.saveName(userName)
+        },
+            enabled = regexUserName.matches(userName)) {
+            Text(text = "Sigueinte ventana")
+        }
     }
 }

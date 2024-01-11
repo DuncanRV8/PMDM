@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.duncanrua.duncanfinal.splashScreen.SplashScreen
 import com.duncanrua.duncanfinal.ui.screen.AddScreen
+import com.duncanrua.duncanfinal.ui.screen.AuthorScreen
 import com.duncanrua.duncanfinal.ui.screen.MainScreen
 import com.duncanrua.duncanfinal.ui.screen.onboarding.MainOnboarding
 import com.duncanrua.duncanfinal.viewModel.AnimeViewModel
@@ -13,7 +14,7 @@ import com.duncanrua.duncanfinal.viewModel.AnimeViewModel
 @Composable
 fun Navigation(animeViewModel: AnimeViewModel){
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Routes.MainScreen.route){
+    NavHost(navController = navController, startDestination = Routes.SplashScreen.route){
         composable(Routes.MainScreen.route){
             MainScreen( navController, animeViewModel)
         }
@@ -26,6 +27,8 @@ fun Navigation(animeViewModel: AnimeViewModel){
         composable(Routes.SplashScreen.route){
             SplashScreen(navController, animeViewModel)
         }
+        composable(Routes.AuthorScreen.route){
+            AuthorScreen(navController, animeViewModel)
+        }
     }
-
 }
