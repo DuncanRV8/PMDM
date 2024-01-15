@@ -9,14 +9,15 @@ import com.duncanrua.duncanfinal.ui.screen.AddScreen
 import com.duncanrua.duncanfinal.ui.screen.AuthorScreen
 import com.duncanrua.duncanfinal.ui.screen.MainScreen
 import com.duncanrua.duncanfinal.ui.screen.onboarding.MainOnboarding
+import com.duncanrua.duncanfinal.viewModel.AnimeViewModel
 import com.duncanrua.duncanfinal.viewModel.UserNameViewModel
 
 @Composable
-fun Navigation(userNameViewModel: UserNameViewModel){
+fun Navigation(userNameViewModel: UserNameViewModel, animeViewModel: AnimeViewModel){
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Routes.SplashScreen.route){
         composable(Routes.MainScreen.route){
-            MainScreen( navController, userNameViewModel)
+            MainScreen( navController, userNameViewModel, animeViewModel)
         }
         composable(Routes.MainOnboarding.route){
             MainOnboarding( navController, userNameViewModel)
@@ -25,7 +26,7 @@ fun Navigation(userNameViewModel: UserNameViewModel){
             AddScreen(navController, userNameViewModel )
         }
         composable(Routes.SplashScreen.route){
-            SplashScreen(navController, userNameViewModel)
+            SplashScreen(navController, userNameViewModel, animeViewModel)
         }
         composable(Routes.AuthorScreen.route){
             AuthorScreen(navController, userNameViewModel)

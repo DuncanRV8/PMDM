@@ -36,9 +36,9 @@ class AnimeViewModel (application: Application): AndroidViewModel(application) {
         }
     }
 
-    fun updateAnime(anime: TaskEntity, id: Int, name: String, author: String, genre: String) {
+    fun updateAnime(anime: TaskEntity, isDone: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {
-            animeDAO.updateTask(anime.copy(id = id, name = name, author = author, genre = genre))
+            animeDAO.updateTask(anime.copy(isDone = isDone))
         }
     }
 }
