@@ -19,14 +19,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.duncanrua.duncanfinal.viewModel.AnimeViewModel
+import com.duncanrua.duncanfinal.viewModel.UserNameViewModel
 
 @Composable
 fun MainOnboarding(
     navController: NavController,
-    animeViewModel: AnimeViewModel
+    userNameViewModel: UserNameViewModel
 ){
-    val userName: String by animeViewModel.userName.observeAsState(initial = "")
+    val userName: String by userNameViewModel.userName.observeAsState(initial = "")
     val regexUserName = Regex("""^\S(?:.*\S)?$""")
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -35,7 +35,7 @@ fun MainOnboarding(
         TextField(
             label = { Text(text = "Nombre del usuario") },
             value = userName,
-            onValueChange = { userName -> animeViewModel.updateUserName(userName)},
+            onValueChange = { userName -> userNameViewModel.updateUserName(userName)},
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp)
@@ -43,7 +43,7 @@ fun MainOnboarding(
         Spacer(modifier = Modifier.height(30.dp))
         Button(onClick = {
             navController.navigate("main_screen")
-            animeViewModel.saveName(userName)
+            userNameViewModel.saveName(userName)
         },
             enabled = regexUserName.matches(userName)) {
             Text(text = "Sigueinte ventana")

@@ -4,7 +4,6 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
@@ -27,15 +26,17 @@ import androidx.navigation.NavController
 import com.duncanrua.duncanfinal.R
 import com.duncanrua.duncanfinal.navigation.Routes
 import com.duncanrua.duncanfinal.viewModel.AnimeViewModel
+import com.duncanrua.duncanfinal.viewModel.UserNameViewModel
 import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreen(navController: NavController, animeViewModel: AnimeViewModel){
-    animeViewModel.loadName()
+fun SplashScreen(navController: NavController, userNameViewModel: UserNameViewModel, animeViewModel: AnimeViewModel){
+    userNameViewModel.loadName()
     LaunchedEffect(key1 = true) {
         delay(3000)
+        animeViewModel.getAllAnimes()
         navController.popBackStack()
-        val userName = animeViewModel.userName.value.orEmpty()
+        val userName = userNameViewModel.userName.value.orEmpty()
         if(userName.length > 1){
             navController.navigate(Routes.MainScreen.route)
         }else{

@@ -33,18 +33,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.duncanrua.duncanfinal.R
-import com.duncanrua.duncanfinal.viewModel.AnimeViewModel
+import com.duncanrua.duncanfinal.viewModel.UserNameViewModel
 
 @Composable
 fun TopBar(
-    animeViewModel: AnimeViewModel,
+    userNameViewModel: UserNameViewModel,
     navController: NavController,
 ){
-    animeViewModel.loadName()
-    val userName: String by animeViewModel.userName.observeAsState(initial = "")
+    userNameViewModel.loadName()
+    val userName: String by userNameViewModel.userName.observeAsState(initial = "")
     TopAppBar(
         navigationIcon = {
         var expanded by rememberSaveable { mutableStateOf(false)}
@@ -78,7 +77,7 @@ fun TopBar(
                 DropdownMenuItem(
                     text = {Text(text = "Cerrar Sesión")},
                     onClick = {
-                        animeViewModel.saveName("")
+                        userNameViewModel.saveName("")
                         navController.navigate("main_onboarding")
                     },
                     leadingIcon = {Icon(imageVector = Icons.Default.Logout, contentDescription = "Cerrar sesión")}

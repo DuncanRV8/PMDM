@@ -1,41 +1,44 @@
 package com.duncanrua.duncanfinal.viewModel
 
 import android.app.Application
-import androidx.compose.runtime.Composable
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.duncanrua.duncanfinal.dataStore.AnimePreferences
+import com.duncanrua.duncanfinal.dao.TaskDAO
+import com.duncanrua.duncanfinal.dataBase.TasksDatabase
+import com.duncanrua.duncanfinal.entities.TaskEntity
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class AnimeViewModel(application: Application) : AndroidViewModel(application) {
-    private val preferences = AnimePreferences(application.applicationContext)
+class AnimeViewModel (application: Application): AndroidViewModel(application) {
+    val animeDAO: TaskDAO = TasksDatabase.getInstance(application).taskDAO()
 
-    private val _userName = MutableLiveData<String>()
-    val userName: LiveData<String> = _userName
+    var animeList: LiveData<MutableList<TaskEntity>> = MutableLiveData()
 
-    fun updateUserName(name: String){
-        _userName.value = name
-    }
-
-    fun saveName(name: String){
-        viewModelScope.launch {
-            preferences.saveName(name)
-            _userName.value = ""
+    fun getAllAnimes() {
+        viewModelScope.launch(Dispatchers.IO) {
+            animeList = animeDAO.getAllTasks()
         }
     }
 
-    fun loadName(){
-        viewModelScope.launch {
-            preferences.loadName().collect {
-                _userName.value = it
+    fun addAnime( anime: String, id: Int, author: String, genre: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            if (animeDAO.taskExists(anime) == 0) {
+                animeDAO.addTask(TaskEntity( name = anime, id = id, author = author, genre = genre))
             }
         }
     }
 
-    @Composable
-    fun loadData(animeViewModel: AnimeViewModel){
-        animeViewModel.loadName()
+    fun deleteAnime(anime: TaskEntity) {
+        viewModelScope.launch(Dispatchers.IO) {
+            animeDAO.deleteTask(anime)
+        }
+    }
+
+    fun updateAnime(anime: TaskEntity, id: Int, name: String, author: String, genre: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            animeDAO.updateTask(anime.copy(id = id, name = name, author = author, genre = genre))
+        }
     }
 }

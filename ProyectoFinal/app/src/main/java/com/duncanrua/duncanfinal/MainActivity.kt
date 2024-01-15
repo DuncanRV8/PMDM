@@ -10,12 +10,12 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.duncanrua.duncanfinal.navigation.Navigation
 import com.duncanrua.duncanfinal.ui.theme.DuncanFinalTheme
-import com.duncanrua.duncanfinal.viewModel.AnimeViewModel
+import com.duncanrua.duncanfinal.viewModel.UserNameViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val animeViewModel by viewModels<AnimeViewModel>()
+        val userNameViewModel by viewModels<UserNameViewModel>()
         setContent {
             DuncanFinalTheme {
                 // A surface container using the 'background' color from the theme
@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Navigation(animeViewModel)
+                    Navigation(userNameViewModel)
                 }
             }
         }
