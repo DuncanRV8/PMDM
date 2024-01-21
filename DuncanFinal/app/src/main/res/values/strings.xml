@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">duncanFinal</string>
+
+    <string name="add">Añadir</string>
+
+    <string name="menu">Menu</string>
+    <string name="main">Principal</string>
+    <string name="log_out">Cerrar sesión</string>
+    <string name="anime_letter">Letra de anime</string>
+
+    <string name="user_name">Nombre del usuario</string>
+    <string name="next_windows">Siguiente ventana</string>
+
+    <string name="tell_me_anime_info">Dime la información del anime</string>
+    <string name="name">Nombre</string>
+    <string name="author">Autor</string>
+    <string name="genre">Genero del anime</string>
+    <string name="info">Información</string>
+
+
+    <string name="anime_information">Información del anime</string>
+    <string name="delete">Eliminar</string>
+    <string name="edit">Modificar</string>
+
+
+    <string name="logo">Logo</string>
+
+    <string name="application_author">Duncan Rua Valiente</string>
+    <string name="return_">Volver atrás</string>
+
+    <string name="change_info_anime">MODIFICA LA INFORMACIÓN DE TU ANIME</string>
+    <string name="change_dades">Cambiar datos</string>
+
+    <string name="anime_list">Lista de animes</string>
+    <string name="delete_anime">Eliminar anime</string>
+</resources>
