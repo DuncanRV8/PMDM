@@ -1,3 +1,10 @@
+/**
+ * Es una aplicación donde pones los animes con la información.
+ *
+ * @author: Duncan Rua Valiente
+ * @version: 7.2.1
+ */
+
 @file:OptIn(ExperimentalMaterial3Api::class)
 
 package com.duncanrua.duncanfinal.ui.screen
@@ -42,6 +49,12 @@ import com.duncanrua.duncanfinal.viewModel.AnimeViewModel
 import com.example.compose.md_theme_light_inversePrimary
 import com.example.compose.md_theme_light_onSurfaceVariant
 
+/**
+ * Donde se mostrara unas funciones de la top bar y ademas se mostrara la lista de los animes.
+ *
+ * @param navController
+ * @param mainViewModels
+ */
 @Composable
 fun MainScreen(
     navController: NavController,

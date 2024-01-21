@@ -1,3 +1,9 @@
+/**
+ * Es una aplicación donde pones los animes con la información.
+ *
+ * @author: Duncan Rua Valiente
+ * @version: 7.2.1
+ */
 package com.duncanrua.duncanfinal.navigation
 
 import androidx.compose.runtime.Composable
@@ -13,6 +19,11 @@ import com.duncanrua.duncanfinal.ui.screen.EditScreen
 import com.duncanrua.duncanfinal.ui.screen.MainScreen
 import com.duncanrua.duncanfinal.ui.screen.onboarding.MainOnboarding
 
+/**
+ * Para poder navegar entre pantallas
+ *
+ * @param mainViewModels
+ */
 @Composable
 fun Navigation(mainViewModels: MainViewModels){
     val navController = rememberNavController()

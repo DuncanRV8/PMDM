@@ -1,3 +1,9 @@
+/**
+ * Es una aplicación donde pones los animes con la información.
+ *
+ * @author: Duncan Rua Valiente
+ * @version: 7.2.1
+ */
 @file:OptIn(ExperimentalMaterial3Api::class)
 
 package com.duncanrua.duncanfinal.ui.screen.onboarding
@@ -31,6 +37,12 @@ import com.duncanrua.duncanfinal.viewModel.AnimeViewModel
 import com.duncanrua.duncanfinal.viewModel.UserNameViewModel
 import com.example.compose.md_theme_light_inversePrimary
 
+/**
+ * Para pedir el usuario
+ *
+ * @param navController
+ * @param mainViewModels
+ */
 @Composable
 fun MainOnboarding(
     navController: NavController,

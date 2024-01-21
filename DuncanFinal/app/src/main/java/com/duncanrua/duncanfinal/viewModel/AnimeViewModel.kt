@@ -1,3 +1,9 @@
+/**
+ * Es una aplicación donde pones los animes con la información.
+ *
+ * @author: Duncan Rua Valiente
+ * @version: 7.2.1
+ */
 package com.duncanrua.duncanfinal.viewModel
 
 import android.app.Application
@@ -12,6 +18,14 @@ import com.duncanrua.duncanfinal.entities.AnimeEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+/**
+ * Donde utilizare mis metodos del anime
+ *
+ * @constructor
+ * TODO
+ *
+ * @param application
+ */
 class AnimeViewModel (application: Application): ViewModel() {
     val animeDAO: AnimeDAO = AnimeDatabase.getInstance(application).animeDAO()
     var animeList: LiveData<MutableList<AnimeEntity>> = MutableLiveData()

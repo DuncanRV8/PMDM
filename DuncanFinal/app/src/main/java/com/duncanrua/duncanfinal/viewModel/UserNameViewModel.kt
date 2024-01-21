@@ -1,3 +1,9 @@
+/**
+ * Es una aplicación donde pones los animes con la información.
+ *
+ * @author: Duncan Rua Valiente
+ * @version: 7.2.1
+ */
 package com.duncanrua.duncanfinal.viewModel
 
 import android.app.Application
@@ -11,6 +17,14 @@ import androidx.lifecycle.viewModelScope
 import com.duncanrua.duncanfinal.dataStore.AnimePreferences
 import kotlinx.coroutines.launch
 
+/**
+ * Donde me vinculare con el Animepreferences para guardar el nombre del usuario
+ *
+ * @constructor
+ * TODO
+ *
+ * @param application
+ */
 class UserNameViewModel(application: Application) : ViewModel() {
     private val preferences = AnimePreferences(application)
 
@@ -24,6 +38,11 @@ class UserNameViewModel(application: Application) : ViewModel() {
         _userName.value = ""
     }
 
+    /**
+     * Guardar el nombre
+     *
+     * @param name
+     */
     fun saveName(name: String){
         viewModelScope.launch {
             preferences.saveName(name)
@@ -31,17 +50,15 @@ class UserNameViewModel(application: Application) : ViewModel() {
         }
     }
 
+    /**
+     * Cargar el dato del nombre
+     *
+     */
     fun loadName(){
         viewModelScope.launch {
             preferences.loadName().collect {
                 _userName.value = it
             }
         }
-    }
-
-
-    @Composable
-    fun loadData(userNameViewModel: UserNameViewModel){
-        userNameViewModel.loadName()
     }
 }

@@ -1,3 +1,9 @@
+/**
+ * Es una aplicación donde pones los animes con la información.
+ *
+ * @author: Duncan Rua Valiente
+ * @version: 7.2.1
+ */
 package com.duncanrua.duncanfinal.ui.screen
 
 import androidx.compose.animation.core.animateFloatAsState
@@ -32,6 +38,11 @@ import com.duncanrua.duncanfinal.R
 import androidx.compose.ui.text.font.FontWeight
 import com.example.compose.md_theme_light_inversePrimary
 
+/**
+ * El autor de la aplicación
+ *
+ * @param navController
+ */
 @Composable
 fun AuthorScreen(
     navController: NavController,

@@ -1,3 +1,9 @@
+/**
+ * Es una aplicación donde pones los animes con la información.
+ *
+ * @author: Duncan Rua Valiente
+ * @version: 7.2.1
+ */
 package com.duncanrua.duncanfinal.ui.screen
 
 import androidx.compose.foundation.background
@@ -30,6 +36,12 @@ import com.duncanrua.duncanfinal.navigation.Routes
 import com.duncanrua.duncanfinal.viewModel.mainViewModels.MainViewModels
 import com.example.compose.md_theme_light_inversePrimary
 
+/**
+ * Para editar los campos del anime que deseas cambiar
+ *
+ * @param navController
+ * @param mainViewModels
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EditScreen(

@@ -1,3 +1,9 @@
+/**
+ * Es una aplicación donde pones los animes con la información.
+ *
+ * @author: Duncan Rua Valiente
+ * @version: 7.2.1
+ */
 package com.duncanrua.duncanfinal.ui.screen
 
 import androidx.compose.foundation.background
@@ -40,6 +46,12 @@ import com.duncanrua.duncanfinal.viewModel.mainViewModels.MainViewModels
 import com.example.compose.md_theme_light_inversePrimary
 import com.example.compose.md_theme_light_onBackground
 
+/**
+ * Donde saldrá la información del anime seleccionado
+ *
+ * @param navController
+ * @param mainViewModels
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AnimeInfoScreen(

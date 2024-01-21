@@ -1,5 +1,16 @@
+/**
+ * Es una aplicación donde pones los animes con la información.
+ *
+ * @author: Duncan Rua Valiente
+ * @version: 7.2.1
+ */
 package com.duncanrua.duncanfinal.navigation
 
+/**
+ * Sirve para acceder a las rutas con un nombre.
+ *
+ * @property route
+ */
 sealed class Routes (val route: String){
     object MainScreen: Routes("main_screen")
     object MainOnboarding: Routes("main_onboarding")

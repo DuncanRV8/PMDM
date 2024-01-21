@@ -1,3 +1,9 @@
+/**
+ * Es una aplicación donde pones los animes con la información.
+ *
+ * @author: Duncan Rua Valiente
+ * @version: 7.2.1
+ */
 package com.duncanrua.duncanfinal.dataStore
 
 import android.content.Context
@@ -8,6 +14,11 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.map
 
+/**
+ * Se comunicara con viewModel para sacar el nombre del usuario y guardar lo en una base de datos
+ *
+ * @property context
+ */
 class AnimePreferences(val context: Context){
     companion object{
         val NAME = stringPreferencesKey("NAME")

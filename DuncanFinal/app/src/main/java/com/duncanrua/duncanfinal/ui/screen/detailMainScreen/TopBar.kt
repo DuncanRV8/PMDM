@@ -1,3 +1,9 @@
+/**
+ * Es una aplicación donde pones los animes con la información.
+ *
+ * @author: Duncan Rua Valiente
+ * @version: 7.2.1
+ */
 @file:OptIn(ExperimentalMaterial3Api::class)
 
 package com.duncanrua.duncanfinal.ui.screen.detailMainScreen
@@ -38,6 +44,12 @@ import androidx.navigation.NavController
 import com.duncanrua.duncanfinal.R
 import com.duncanrua.duncanfinal.viewModel.UserNameViewModel
 
+/**
+ * Top bar de mi mainScreen
+ *
+ * @param userNameViewModel
+ * @param navController
+ */
 @Composable
 fun TopBar(
     userNameViewModel: UserNameViewModel,
